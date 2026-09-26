@@ -1,0 +1,145 @@
+<title>Kickoff Email Directions</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;600;700;800&family=Fira+Code:wght@500;600&display=swap">
+<style>
+:root{
+  --paper:#F4F3EF; --panel:#FFFFFF; --ink:#1B2233; --muted:#5A6477; --line:#DEDFE3;
+  --navy:#2F4A70; --red:#E8003A; --purple:#4E2A84; --chip:#ECEEF3; --chip-on:#2F4A70; --chip-on-ink:#FFFFFF;
+  --frame:#E6E4DE; --focus:#FF0040;
+}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){
+  --paper:#11151D; --panel:#1A2030; --ink:#E6E9F0; --muted:#9AA3B5; --line:#2C3446;
+  --navy:#9DB5DD; --red:#FF4D73; --purple:#B79BE6; --chip:#242B3C; --chip-on:#9DB5DD; --chip-on-ink:#11151D;
+  --frame:#0B0E14; color-scheme:dark; } }
+:root[data-theme="dark"]{
+  --paper:#11151D; --panel:#1A2030; --ink:#E6E9F0; --muted:#9AA3B5; --line:#2C3446;
+  --navy:#9DB5DD; --red:#FF4D73; --purple:#B79BE6; --chip:#242B3C; --chip-on:#9DB5DD; --chip-on-ink:#11151D;
+  --frame:#0B0E14; color-scheme:dark; }
+*{box-sizing:border-box}
+body{background:var(--paper); color:var(--ink); font-family:Lexend,"Helvetica Neue",Arial,sans-serif; padding:28px 20px 48px}
+.wrap{max-width:1240px; margin:0 auto; display:flex; flex-direction:column; gap:22px}
+header{display:flex; flex-wrap:wrap; align-items:flex-end; justify-content:space-between; gap:12px 24px}
+.eyebrow{font-family:"Fira Code",Menlo,monospace; font-size:12px; font-weight:600; letter-spacing:1.5px; text-transform:uppercase; color:var(--navy); display:flex; align-items:center; gap:8px}
+.eyebrow::before{content:""; width:3px; height:14px; background:var(--red)}
+h1{margin:8px 0 0; font-size:clamp(28px,4vw,40px); font-weight:800; letter-spacing:-1px; line-height:1.05; text-wrap:balance}
+h1 .b{color:var(--navy)} h1 .h{color:var(--red)}
+.sub{margin:8px 0 0; color:var(--muted); font-size:15px; max-width:62ch; line-height:1.55}
+.layout{display:grid; grid-template-columns:320px minmax(0,1fr); gap:22px; align-items:start}
+@media (max-width:900px){ .layout{grid-template-columns:1fr} }
+.dirs{display:flex; flex-direction:column; gap:10px}
+@media (max-width:900px){ .dirs{display:grid; grid-template-columns:repeat(auto-fill,minmax(240px,1fr))} }
+.dir{all:unset; cursor:pointer; background:var(--panel); border:1.5px solid var(--line); border-radius:12px; padding:14px 16px; display:flex; flex-direction:column; gap:6px}
+.dir:hover{border-color:var(--muted)}
+.dir:focus-visible{outline:2px solid var(--focus); outline-offset:2px}
+.dir[aria-pressed="true"]{border-color:var(--navy); background:var(--chip)}
+.dir .n{font-family:"Fira Code",Menlo,monospace; font-size:11px; color:var(--muted); letter-spacing:1px}
+.dir .t{font-size:16px; font-weight:700}
+.dir .d{font-size:13px; color:var(--muted); line-height:1.45}
+.sw{display:flex; gap:4px; margin-top:2px}
+.sw i{width:18px; height:10px; border-radius:2px; border:1px solid var(--line)}
+.stage{display:flex; flex-direction:column; gap:14px; min-width:0}
+.controls{display:flex; flex-wrap:wrap; gap:10px 18px; align-items:center}
+.group{display:flex; flex-direction:column; gap:5px}
+.group .lbl{font-family:"Fira Code",Menlo,monospace; font-size:10.5px; letter-spacing:1.2px; text-transform:uppercase; color:var(--muted)}
+.seg{display:inline-flex; background:var(--chip); border-radius:9px; padding:3px; gap:2px}
+.seg button{all:unset; cursor:pointer; font-size:13px; font-weight:600; padding:6px 11px; border-radius:7px; color:var(--ink)}
+.seg button[aria-pressed="true"]{background:var(--chip-on); color:var(--chip-on-ink)}
+.seg button:focus-visible{outline:2px solid var(--focus); outline-offset:1px}
+.frame{background:var(--frame); border-radius:14px; padding:18px; overflow-x:auto; display:flex; justify-content:center}
+iframe{border:0; background:#fff; border-radius:6px; display:block; width:700px; max-width:100%; min-height:600px; transition:width .2s ease}
+iframe.phone{width:375px}
+@media (prefers-reduced-motion:reduce){ iframe{transition:none} }
+.path{font-family:"Fira Code",Menlo,monospace; font-size:12px; color:var(--muted); overflow-wrap:anywhere}
+.path b{color:var(--ink); font-weight:600}
+.notes{display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:12px}
+.note{background:var(--panel); border:1px solid var(--line); border-radius:12px; padding:14px 16px; font-size:13.5px; line-height:1.5; color:var(--muted)}
+.note strong{display:block; color:var(--ink); font-size:14px; margin-bottom:4px}
+</style>
+
+<div class="wrap">
+  <header>
+    <div>
+      <div class="eyebrow">Fall 2026 &middot; Northwestern chapter</div>
+      <h1><span class="b">Binary</span><span class="h">Heart</span> kickoff email directions</h1>
+      <p class="sub">Six ways to dress the recruitment email and the first meeting announcement. Pick a direction on the left, then flip the header, stats row, and width to compare.</p>
+    </div>
+  </header>
+
+  <div class="layout">
+    <nav class="dirs" id="dirs" aria-label="Design directions"></nav>
+    <section class="stage" aria-label="Preview">
+      <div class="controls">
+        <div class="group"><span class="lbl" id="l-email">Email</span>
+          <div class="seg" role="group" aria-labelledby="l-email" data-k="email">
+            <button id="e-rec" data-v="recruitment">Recruitment</button>
+            <button id="e-ann" data-v="announcement">Announcement</button>
+          </div></div>
+        <div class="group"><span class="lbl" id="l-hdr">Header</span>
+          <div class="seg" role="group" aria-labelledby="l-hdr" data-k="hdr">
+            <button id="h-cl" data-v="classic">Classic</button>
+            <button id="h-lk" data-v="lockup">Chapter lockup</button>
+          </div></div>
+        <div class="group"><span class="lbl" id="l-st">Stats row</span>
+          <div class="seg" role="group" aria-labelledby="l-st" data-k="stats">
+            <button id="s-on" data-v="stats">On</button>
+            <button id="s-off" data-v="nostats">Off</button>
+          </div></div>
+        <div class="group"><span class="lbl" id="l-w">Width</span>
+          <div class="seg" role="group" aria-labelledby="l-w" data-k="w">
+            <button id="w-d" data-v="desktop">Desktop</button>
+            <button id="w-p" data-v="phone">Phone</button>
+          </div></div>
+      </div>
+      <div class="frame"><iframe id="view" title="Email preview"></iframe></div>
+      <div class="path" id="path"></div>
+      <div class="notes">
+        <div class="note"><strong>Built for Gmail</strong>Tables and inline styles only, so what you see here survives Gmail's CSS stripping. Gmail shows Helvetica/Arial in place of Lexend.</div>
+        <div class="note"><strong>Images need a home</strong>Previews embed the images. Real emails load them from github.com/BinaryHeartUS/design (email/assets).</div>
+        <div class="note"><strong>One color system</strong>Every direction uses navy for structure and red for the main action, with purple for Northwestern (Admit One gives purple the lead). Discord blurple stays inside its own icon.</div>
+      </div>
+    </section>
+  </div>
+</div>
+
+<script id="payload" type="application/json">__DATA__</script>
+<script>
+const P = JSON.parse(document.getElementById('payload').textContent);
+const SW = __SW__;
+const NAMES = {recruitment:'Recruitment', announcement:'First Meeting Announcement'};
+const HN = {classic:'Classic header', lockup:'Chapter lockup'};
+const SN = {stats:'Stats', nostats:'No Stats'};
+let st = {dir:'workbench', email:'recruitment', hdr:'lockup', stats:'stats', w:'desktop'};
+try { Object.assign(st, JSON.parse(localStorage.getItem('kickoff-view')||'{}')); } catch(e) {}
+
+const dirs = document.getElementById('dirs');
+P.directions.forEach(d => {
+  const b = document.createElement('button');
+  b.className = 'dir'; b.id = 'dir-' + d.key; b.dataset.key = d.key;
+  const [num, ...rest] = d.name.split(' ');
+  b.innerHTML = `<span class="n">${num}</span><span class="t">${rest.join(' ')}</span><span class="d">${d.blurb}</span>` +
+    `<span class="sw">${SW[d.key].map(c => `<i style="background:${c}"></i>`).join('')}</span>`;
+  b.addEventListener('click', () => { st.dir = d.key; render(); });
+  dirs.appendChild(b);
+});
+document.querySelectorAll('.seg').forEach(seg => seg.addEventListener('click', e => {
+  const b = e.target.closest('button'); if (!b) return;
+  st[seg.dataset.k] = b.dataset.v; render();
+}));
+
+const frame = document.getElementById('view');
+function fit(){ try { const d = frame.contentDocument; if (d && d.body) frame.style.height = (d.documentElement.scrollHeight + 4) + 'px'; } catch(e) {} }
+frame.addEventListener('load', () => { fit(); setTimeout(fit, 300); setTimeout(fit, 1200); });
+
+function render(){
+  document.querySelectorAll('.dir').forEach(b => b.setAttribute('aria-pressed', b.dataset.key === st.dir));
+  document.querySelectorAll('.seg').forEach(seg => seg.querySelectorAll('button').forEach(b => b.setAttribute('aria-pressed', b.dataset.v === st[seg.dataset.k])));
+  let html = P.emails[st.dir][st.email][st.hdr][st.stats];
+  html = html.replace(/\{\{IMG:([a-z0-9-]+)\}\}/g, (m, k) => P.images[k] || '');
+  frame.classList.toggle('phone', st.w === 'phone');
+  frame.srcdoc = '<!doctype html><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><body style="margin:0">' + html + '</body>';
+  const name = P.directions.find(d => d.key === st.dir).name;
+  document.getElementById('path').innerHTML = `render(&quot;${st.dir}&quot;, &quot;${st.email}&quot;, hdr=&quot;${st.hdr}&quot;, stats=${st.stats === 'stats' ? 'True' : 'False'}) &middot; <b>${name}</b>`;
+  try { localStorage.setItem('kickoff-view', JSON.stringify(st)); } catch(e) {}
+}
+render();
+</script>
