@@ -8,7 +8,7 @@ Cats on Campus event description, day-of event notification, welcome.
 """
 import os
 from .. import components as D
-from ..components import (NAVY, RED, PURPLE, INK, MUTED, F, MONO, FN, RSVP, AVAIL, LEAD, DISCORD, IG, MAP,
+from ..components import (NAVY, RED, PURPLE, INK, MUTED, F, MONO, FN, RSVP, AVAIL, LEAD, lead_btn, lead_link, DISCORD, IG, MAP,
                           BH, a, p, btn, cols, row, spacer, lockup, signature, app_row, nonprofit_footer,
                           highlights_list, directions_list, whatwedo_rows, stats_row, T, finish, IMG_BASE)
 
@@ -80,7 +80,7 @@ def weekly_card():
 
 def lead_card():
     return card(titled("Want to lead?") + p(D.C["lead"], 14)
-                + btn(LEAD, "Leadership interest form", "#FFFFFF", NAVY, OUT, size=14, radius=10, pad="10px 18px"))
+                + lead_btn("Leadership interest form", "#FFFFFF", NAVY, OUT, size=14, radius=10, pad="10px 18px"))
 
 
 def whatwedo_card(stats=True):
@@ -199,7 +199,9 @@ def welcome():
     R += discord_card("We use Discord as our primary communications platform, so please get it set up as soon as you can.")
     R += card(titled("Next step: onboarding")
               + p("Once you're on Discord, message and/or email the person helping you with onboarding (or the person CCed on this email) to set up an onboarding meeting.", 14, mb=0))
-    R += card(titled("Want to lead?") + p(f"Interested in leading a department or project? Fill out our {a(LEAD, 'leadership interest form', NAVY, 600)} (just your name and email), or tell anyone on exec at a meeting.", 14, mb=0))
+    lead_text = (f"Interested in leading a department or project? Fill out our {lead_link('leadership interest form', NAVY, 600)} (just your name and email), or tell anyone on exec at a meeting."
+                 if LEAD else "Interested in leading a department or project? Tell anyone on exec at a meeting, and we'll follow up with you.")
+    R += card(titled("Want to lead?") + p(lead_text, 14, mb=0))
     return page(R + connect_and_sign(question="Questions? Just reply to this email."), "welcome")
 
 

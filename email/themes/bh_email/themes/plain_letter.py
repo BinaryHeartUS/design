@@ -32,7 +32,7 @@ def render(email, hdr="lockup", stats=True):
     if email == "announcement":
         R += section(label("Getting there") + directions_list(num_color=NAVY))
     R += section(label("Weekly sessions") + p(C["avail"]) + a(AVAIL, "Share your availability &rarr;", NAVY, 700, False))
-    R += section(label("Want to lead?") + p(C["lead"]) + a(LEAD, "Leadership interest form &rarr;", NAVY, 700, False))
+    R += section(label("Want to lead?") + p(C["lead"]) + lead_link("Leadership interest form &rarr;", NAVY, 700, False))
     wwd = ""
     for key, t, d in C["whatwedo"]:
         wwd += (f'<tr><td width="56" valign="middle" style="padding: 6px 12px 6px 0;"><img src="{img(key)}" alt="" width="48" style="width: 48px; height: auto; display: block; border: 0;"></td>'

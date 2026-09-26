@@ -21,12 +21,23 @@ FN = "{{First Name}}"
 
 RSVP = "https://cglink.me/23r/r376771/"
 AVAIL = "https://timeful.app/e/ZG6SVV"
-LEAD = "[LEADERSHIP_INTEREST_FORM_LINK]"
+# Leadership interest form URL. None hides every form button/link and tells people to talk to exec instead.
+LEAD = None  # e.g. "https://forms.gle/..." once the form exists
 DISCORD = "https://discord.gg/QutKWgv7U"
 IG = "https://instagram.com/binaryheartatnu"
 MAP = "https://maps.app.goo.gl/7UAMTC36M6UMPhax6"
 SITE = "https://www.binaryheart.org/nu"
 LOGO = "{{IMG:logo}}"
+
+
+def lead_btn(label, *args, **kw):
+    """Leadership form button, or nothing while LEAD is None."""
+    return btn(LEAD, label, *args, **kw) if LEAD else ""
+
+
+def lead_link(label, *args, **kw):
+    """Leadership form text link, or nothing while LEAD is None."""
+    return a(LEAD, label, *args, **kw) if LEAD else ""
 
 
 def img(name):
@@ -114,7 +125,9 @@ C = {
         ("Dunkin' donuts", "For everyone who stops by, while they last"),
     ],
     "avail": "Weekly drop-in sessions will be set around members' availability. We'll announce the schedule on <strong>Sunday, October 11</strong>.",
-    "lead": "We're recruiting leaders and directors, with no application or interview. Get involved as a member and step up as the chapter grows, or tell us now with a short form (just your name and email).",
+    "lead": ("We're recruiting leaders and directors, with no application or interview. Get involved as a member and step up as the chapter grows, or tell us now with a short form (just your name and email)."
+             if LEAD else
+             "We're recruiting leaders and directors, with no application or interview. Get involved as a member and step up as the chapter grows, or tell anyone on exec at the first meeting that you're interested."),
     "directions": [
         "Find the house with the screened front porch, directly across from Foster-Walker (two houses right of the apartment building at Orrington &amp; Emerson).",
         "Take the pathway along the right side of the house.",

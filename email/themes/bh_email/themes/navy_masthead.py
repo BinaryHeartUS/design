@@ -38,7 +38,7 @@ def render(email, hdr="lockup", stats=True):
     if email == "announcement":
         body += card("Getting there", directions_list())
     body += card("Help set our weekly schedule", p(C["avail"], 14) + btn(AVAIL, "Share your availability", NAVY, size=14, pad="10px 18px"))
-    body += card("Want to lead?", p(C["lead"], 14) + btn(LEAD, "Leadership interest form", "#FFFFFF", NAVY, NAVY, size=14, pad="10px 18px"))
+    body += card("Want to lead?", p(C["lead"], 14) + lead_btn("Leadership interest form", "#FFFFFF", NAVY, NAVY, size=14, pad="10px 18px"))
     wwd = whatwedo_rows(card_bg="#FFFFFF", radius=10, pad="10px 12px")
     if stats:
         wwd += '<div style="height: 6px;">&nbsp;</div>' + stats_row(NAVY, MUTED, "#C9D0DC", F, 20)

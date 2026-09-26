@@ -55,7 +55,7 @@ def render(email, hdr="lockup", stats=True):
            + p(C["avail"], 14, MUTED, mt=4) + btn(AVAIL, "Share your availability", NAVY, size=14, pad="10px 18px")
            + f'<div style="border-top: 1px solid {LINE}; margin: 20px 0;"></div>'
            + f'<div style="font-family: {F}; font-size: 16px; font-weight: 700; color: {NAVY};">Want to lead?</div>'
-           + p(C["lead"], 14, MUTED, mt=4) + btn(LEAD, "Leadership interest form", "#FFFFFF", NAVY, NAVY, size=14, pad="10px 18px"))
+           + p(C["lead"], 14, MUTED, mt=4) + lead_btn("Leadership interest form", "#FFFFFF", NAVY, NAVY, size=14, pad="10px 18px"))
     R += row(nxt, pad="22px 24px", bg=CARD, radius="16px")
     R += spacer(22)
     R += row(eyebrow(f'What we do <span style="color: {MUTED}; font-weight: 400; letter-spacing: 0.5px; text-transform: none;">&mdash; a bit of everything, roles come later</span>')
