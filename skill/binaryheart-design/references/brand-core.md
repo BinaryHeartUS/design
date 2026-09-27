@@ -84,7 +84,9 @@ When a chapter's accent is TBD, use navy and red only, and tell the user an acce
     - Mention snacks once, as the last perk in a list, never in the subject line or hero.
 - Use the terms "refurbish", "donated computers", "digital access", and "hands-on repair."
     - Avoid "e-waste" as a headline word.
-- The Fall 2026 NU pipeline has no application: everyone joins the email list, and leadership comes from active members or a short interest form.
+- The Fall 2026 NU pipeline has no application: everyone joins the email list, and leadership roles go to members who actively attend weekly meetings.
+- BinaryHeart members tend to be quieter, so never make "tell exec" or "come talk to us" the path to anything.
+    - Frame leadership as earned by showing up, and let exec do the reaching out.
     - Check whether a chapter uses the same pipeline before writing "no application."
 - Dates look like "Thursday, October 8" and times like "11 AM – 6 PM" (with an en dash).
     - Never write "Oct 8th" in headlines, though "October 8th" is fine in running prose.

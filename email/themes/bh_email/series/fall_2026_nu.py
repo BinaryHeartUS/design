@@ -208,7 +208,7 @@ def welcome():
     R += card(titled("Next step: onboarding")
               + p("Once you're on Discord, message and/or email the person helping you with onboarding (or the person CCed on this email) to set up an onboarding meeting.", 14, mb=0))
     lead_text = (f"Interested in leading a department or project? Fill out our {lead_link('leadership interest form', NAVY, 600)} (just your name and email), or tell anyone on exec at a meeting."
-                 if LEAD else "Interested in leading a department or project? Tell anyone on exec at a meeting, and we'll follow up with you.")
+                 if LEAD else "Leadership roles go to members who are actively attending our weekly meetings. Keep coming, and we'll reach out when a role opens up.")
     R += card(titled("Want to lead?") + p(lead_text, 14, mb=0))
     return page(R + connect_and_sign(question="Questions? Just reply to this email."), "welcome")
 

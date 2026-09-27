@@ -128,7 +128,7 @@ C = {
     "avail": "Our weekly meeting times will be set based on the availability of active members. We'll announce the schedule on <strong>Sunday, October 11</strong> by email.",
     "lead": ("We're recruiting leaders and directors, with no application or interview. Get involved as a member and step up as the chapter grows, or tell us now with a short form (just your name and email)."
              if LEAD else
-             "We're recruiting leaders and directors, with no application or interview. Get involved as a member and step up as the chapter grows, or tell anyone on exec at the first meeting that you're interested."),
+             "We're recruiting leaders and directors, with no application or interview. Leadership roles go to members who are actively attending our weekly meetings, so the best way to get involved is to keep showing up."),
     "directions": [
         "Find the house with the screened front porch, directly across from Foster-Walker (2nd house to the right of the apartment building at Orrington &amp; Emerson).",
         "Take the pathway along the right side of the house.",
