@@ -67,13 +67,7 @@ def details_card(highlights=True):
     if not highlights:
         return card(body)
 
-    def item(title):
-        return (f'<td width="50%" valign="top" style="padding: 5px 8px 5px 0; font-family: {F}; font-size: 14px; font-weight: 600; color: {INK}; line-height: 1.4;">'
-                f'<span style="display: inline-block; width: 8px; height: 8px; background-color: {RED}; margin-right: 10px; vertical-align: middle;"></span>{title}</td>')
-    titles = [t for t, _ in D.C["highlights"]]
-    grid = "".join(f"<tr>{item(titles[i])}{item(titles[i + 1]) if i + 1 < len(titles) else '<td></td>'}</tr>" for i in range(0, len(titles), 2))
-    return card(body + f'<div style="border-top: 1px solid #E3D6BE; margin: 16px 0 10px 0;"></div>'
-                + f'<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">{grid}</table>')
+    return card(cols([(46, body), (54, highlights_list(INK, RED, 14))], gap=14, valign="middle"))
 
 
 def getting_there():
