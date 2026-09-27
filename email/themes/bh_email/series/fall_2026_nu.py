@@ -62,10 +62,18 @@ def details_card(highlights=True):
     body = (f'<div style="font-family: {F}; font-size: 12px; font-weight: 700; letter-spacing: 1.4px; color: {RED};">THURSDAY</div>'
             f'<div style="font-family: {F}; font-size: 40px; font-weight: 800; line-height: 1; color: {NAVY};">Oct 8</div>'
             f'<div style="font-family: {F}; font-size: 15px; font-weight: 600; color: {INK}; margin-top: 6px;">11 AM &ndash; 6 PM &middot; drop in anytime</div>'
-            f'<div style="font-family: {F}; font-size: 14px; margin-top: 4px;">{a(MAP, "1910 Orrington Ave, Evanston", NAVY, 600)} <span style="color: {MUTED};">&middot; across from Foster-Walker</span></div>')
+            f'<div style="font-family: {F}; font-size: 14px; margin-top: 6px;">{a(MAP, "1910 Orrington Ave, Evanston", NAVY, 600)}</div>'
+            f'<div style="font-family: {F}; font-size: 13px; color: {MUTED}; margin-top: 2px;">Across from Foster-Walker</div>')
     if not highlights:
         return card(body)
-    return card(cols([(46, body), (54, highlights_list(INK, RED, 14))], gap=14, valign="middle"))
+
+    def item(title):
+        return (f'<td width="50%" valign="top" style="padding: 5px 8px 5px 0; font-family: {F}; font-size: 14px; font-weight: 600; color: {INK}; line-height: 1.4;">'
+                f'<span style="display: inline-block; width: 8px; height: 8px; background-color: {RED}; margin-right: 10px; vertical-align: middle;"></span>{title}</td>')
+    titles = [t for t, _ in D.C["highlights"]]
+    grid = "".join(f"<tr>{item(titles[i])}{item(titles[i + 1]) if i + 1 < len(titles) else '<td></td>'}</tr>" for i in range(0, len(titles), 2))
+    return card(body + f'<div style="border-top: 1px solid #E3D6BE; margin: 16px 0 10px 0;"></div>'
+                + f'<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">{grid}</table>')
 
 
 def getting_there():
