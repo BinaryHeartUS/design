@@ -205,8 +205,8 @@ def welcome():
                        + btn(AVAIL, "Join our mailing list", NAVY, border=OUT, size=14, radius=10, pad="10px 18px"), "laptop"))
     R += getting_there()
     R += discord_card("We use Discord as our primary communications platform, so please get it set up as soon as you can.")
-    R += card(titled("Next step: onboarding")
-              + p("Once you're on Discord, message and/or email the person helping you with onboarding (or the person CCed on this email) to set up an onboarding meeting.", 14, mb=0))
+    R += card(titled("Next step: come to a meeting")
+              + p("Onboarding happens in person. Drop in during any meeting, and someone from exec will welcome you, get you set up, and train you on your first repair.", 14, mb=0))
     lead_text = (f"Interested in leading a department or project? Fill out our {lead_link('leadership interest form', NAVY, 600)} (just your name and email), or tell anyone on exec at a meeting."
                  if LEAD else "Leadership roles go to members who are actively attending our weekly meetings. Keep coming, and we'll reach out when a role opens up.")
     R += card(titled("Want to lead?") + p(lead_text, 14, mb=0))
