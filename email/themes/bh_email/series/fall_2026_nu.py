@@ -207,7 +207,7 @@ def welcome():
     R += discord_card("We use Discord as our primary communications platform, so please get it set up as soon as you can.")
     R += card(titled("Next step: come to our first meeting")
               + p(f"Attend our first meeting on <strong>Thursday, October 8</strong> (drop in anytime, 11 AM&ndash;6 PM), and we'll get you set up in person. "
-                  f"Can't make it? Email {a('mailto:nu@binaryheart.org', 'nu@binaryheart.org', NAVY, 600)} and we'll figure something out.", 14, mb=0))
+                  f"Can't make it? Email {a('mailto:nu@binaryheart.org', 'nu@binaryheart.org', NAVY, 600)} and we'll find another time to get you started.", 14, mb=0))
     lead_text = (f"Interested in leading a department or project? Fill out our {lead_link('leadership interest form', NAVY, 600)} (just your name and email), or tell anyone on exec at a meeting."
                  if LEAD else "Leadership roles go to members who are actively attending our weekly meetings. Keep coming, and we'll reach out when a role opens up.")
     R += card(titled("Want to lead?") + p(lead_text, 14, mb=0))
