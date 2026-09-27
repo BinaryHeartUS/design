@@ -36,7 +36,7 @@ def render(email, hdr="lockup", stats=True):
         return row(f'<div style="font-family: {F}; font-size: 17px; font-weight: 700; color: {NAVY}; margin-bottom: 8px;">{title}</div>{inner}', pad="20px 24px", bg="#FFFFFF", radius="14px") + spacer(12)
     if email == "announcement":
         R += block("Getting there", directions_list(num_color=PURPLE))
-    R += block("Help set our weekly schedule", p(C["avail"], 14) + btn(AVAIL, "Share your availability", NAVY, size=14, pad="10px 18px"))
+    R += block("Join our mailing list", p(C["avail"], 14) + btn(AVAIL, "Join our mailing list", NAVY, size=14, pad="10px 18px"))
     R += block("Want to lead?", p(C["lead"], 14) + lead_btn("Leadership interest form", "#FFFFFF", NAVY, NAVY, size=14, pad="10px 18px"))
     wwd = whatwedo_rows(card_bg=LIL, radius=10, pad="10px 12px")
     if stats:

@@ -103,7 +103,7 @@ Stats row: optional in every direction, and only with confirmed numbers.
 
 ## Content patterns
 
-- **Recruitment:** greeting, who we are, "no application", a returning-members line, first meeting details, optional RSVP, availability, leadership, what we do, questions and connect, signature, footer.
+- **Recruitment:** greeting, who we are, "no application", a returning-members line, first meeting details, optional RSVP, mailing list sign-up (weekly times are set from active members' availability and announced by email), leadership, what we do, questions and connect, signature, footer.
 - **Announcement (sent 2-3 days before):** greeting, invite, details, getting there (numbered steps), weekly sessions, leadership, connect, signature, and the list-policy note.
 - **Day-of notification:** details first, then getting there, then Discord setup.
 - **Welcome:** connect, hours, location, Discord setup (join, set server nickname to your full name, install on phone and computer, turn on notifications), then an onboarding step.

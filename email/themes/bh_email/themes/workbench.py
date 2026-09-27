@@ -31,7 +31,7 @@ def render(email, hdr="lockup", stats=True):
                     (34, f'<img src="{img("toolkit")}" alt="" width="160" style="width: 100%; max-width: 160px; height: auto; display: block; border: 0;">')], gap=12, valign="middle"))
     if email == "announcement":
         R += card(titled("Getting there") + directions_list())
-    R += card(cols([(66, titled("Help set our weekly schedule") + p(C["avail"], 14) + btn(AVAIL, "Share your availability", NAVY, border=OUT, size=14, radius=10, pad="10px 18px")),
+    R += card(cols([(66, titled("Join our mailing list") + p(C["avail"], 14) + btn(AVAIL, "Join our mailing list", NAVY, border=OUT, size=14, radius=10, pad="10px 18px")),
                     (34, f'<img src="{img("laptop")}" alt="" width="150" style="width: 100%; max-width: 150px; height: auto; display: block; border: 0;">')], gap=12, valign="middle"))
     R += card(titled("Want to lead?") + p(C["lead"], 14) + lead_btn("Leadership interest form", "#FFFFFF", NAVY, OUT, size=14, radius=10, pad="10px 18px"))
     wwd = titled("What we do") + whatwedo_rows(card_bg=PAGE, radius=12, pad="10px 12px")

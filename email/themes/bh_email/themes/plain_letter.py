@@ -31,7 +31,7 @@ def render(email, hdr="lockup", stats=True):
     R += section(fm)
     if email == "announcement":
         R += section(label("Getting there") + directions_list(num_color=NAVY))
-    R += section(label("Weekly sessions") + p(C["avail"]) + a(AVAIL, "Share your availability &rarr;", NAVY, 700, False))
+    R += section(label("Weekly sessions") + p(C["avail"]) + a(AVAIL, "Join our mailing list &rarr;", NAVY, 700, False))
     R += section(label("Want to lead?") + p(C["lead"]) + lead_link("Leadership interest form &rarr;", NAVY, 700, False))
     wwd = ""
     for key, t, d in C["whatwedo"]:

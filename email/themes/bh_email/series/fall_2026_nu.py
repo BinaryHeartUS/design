@@ -81,8 +81,8 @@ def getting_there():
 
 
 def weekly_card():
-    return card(with_art(titled("Help set our weekly schedule") + p(D.C["avail"], 14)
-                         + btn(AVAIL, "Share your availability", NAVY, border=OUT, size=14, radius=10, pad="10px 18px"), "laptop"))
+    return card(with_art(titled("Join our mailing list") + p(D.C["avail"], 14)
+                         + btn(AVAIL, "Join our mailing list", NAVY, border=OUT, size=14, radius=10, pad="10px 18px"), "laptop"))
 
 
 def lead_card():
@@ -201,7 +201,7 @@ def welcome():
     hours = "".join(f'<div style="font-family: {F}; font-size: 15px; font-weight: 700; color: {INK}; margin: 0 0 6px 0;">'
                     f'<span style="display: inline-block; width: 8px; height: 8px; background-color: {RED}; margin-right: 10px; vertical-align: middle;"></span>[WEEKLY_SCHEDULE_DAY_{i}]: [TIME]</div>' for i in (1, 2, 3))
     R += card(with_art(titled("Volunteering hours") + p('We work on an "open house" system: come as much or as little as you like during open hours. <strong>Fall Quarter hours:</strong>', 14) + hours
-                       + p("Meetings are walk-in, with no fixed time commitment.", 13, MUTED, mt=8, mb=0), "laptop"))
+                       + p("These times are set based on the availability of active members. Meetings are walk-in, with no fixed time commitment.", 13, MUTED, mt=8, mb=0), "laptop"))
     R += getting_there()
     R += discord_card("We use Discord as our primary communications platform, so please get it set up as soon as you can.")
     R += card(titled("Next step: onboarding")

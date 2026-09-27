@@ -51,8 +51,8 @@ def render(email, hdr="lockup", stats=True):
         R += row(eyebrow("Getting there") + '<div style="height: 12px;">&nbsp;</div>' + directions_list(), pad="22px 24px", bg=CARD, radius="16px")
         R += spacer(16)
     nxt = (eyebrow("Next steps") + '<div style="height: 14px;">&nbsp;</div>'
-           + f'<div style="font-family: {F}; font-size: 16px; font-weight: 700; color: {NAVY};">Help set our weekly schedule</div>'
-           + p(C["avail"], 14, MUTED, mt=4) + btn(AVAIL, "Share your availability", NAVY, size=14, pad="10px 18px")
+           + f'<div style="font-family: {F}; font-size: 16px; font-weight: 700; color: {NAVY};">Join our mailing list</div>'
+           + p(C["avail"], 14, MUTED, mt=4) + btn(AVAIL, "Join our mailing list", NAVY, size=14, pad="10px 18px")
            + f'<div style="border-top: 1px solid {LINE}; margin: 20px 0;"></div>'
            + f'<div style="font-family: {F}; font-size: 16px; font-weight: 700; color: {NAVY};">Want to lead?</div>'
            + p(C["lead"], 14, MUTED, mt=4) + lead_btn("Leadership interest form", "#FFFFFF", NAVY, NAVY, size=14, pad="10px 18px"))

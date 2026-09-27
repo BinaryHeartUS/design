@@ -20,7 +20,8 @@ FONT_LINK = '<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@30
 FN = "{{First Name}}"
 
 RSVP = "https://cglink.me/23r/r376771/"
-AVAIL = "https://timeful.app/e/ZG6SVV"
+# Mailing list sign-up (the weekly schedule is announced to this list). Name kept as AVAIL for compatibility.
+AVAIL = "https://join.binaryheart.org/nu"
 # Leadership interest form URL. None hides every form button/link and tells people to talk to exec instead.
 LEAD = None  # e.g. "https://forms.gle/..." once the form exists
 DISCORD = "https://discord.gg/QutKWgv7U"
@@ -124,7 +125,7 @@ C = {
         ("Hands-on repair", "Take apart and repair a real laptop on day one"),
         ("Dunkin' donuts", "For everyone who stops by, while they last"),
     ],
-    "avail": "Weekly drop-in sessions will be set around members' availability. We'll announce the schedule on <strong>Sunday, October 11</strong>.",
+    "avail": "Our weekly meeting times will be set based on the availability of active members. We'll announce the schedule on <strong>Sunday, October 11</strong> by email.",
     "lead": ("We're recruiting leaders and directors, with no application or interview. Get involved as a member and step up as the chapter grows, or tell us now with a short form (just your name and email)."
              if LEAD else
              "We're recruiting leaders and directors, with no application or interview. Get involved as a member and step up as the chapter grows, or tell anyone on exec at the first meeting that you're interested."),

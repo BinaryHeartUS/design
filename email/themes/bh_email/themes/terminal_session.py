@@ -37,7 +37,7 @@ def render(email, hdr="lockup", stats=True):
              + f'<span style="font-family: {MONO}; font-size: 12px; color: {MUTED}; padding-left: 10px;"># optional</span>')
     if email == "announcement":
         body += comment("getting_there") + directions_list(font=F)
-    body += comment("weekly_sessions") + p(C["avail"], 14) + btn(AVAIL, "share_availability()", NAVY, font=MONO, size=14, radius=6, pad="10px 18px")
+    body += comment("weekly_sessions") + p(C["avail"], 14) + btn(AVAIL, "join_mailing_list()", NAVY, font=MONO, size=14, radius=6, pad="10px 18px")
     body += comment("want_to_lead") + p(C["lead"], 14) + lead_btn("leadership_interest()", "#FFFFFF", NAVY, NAVY, font=MONO, size=14, radius=6, pad="10px 18px")
     body += comment("what_we_do") + whatwedo_rows(card_bg="#F6F7FA", radius=10, pad="10px 12px")
     if stats:
