@@ -20,8 +20,13 @@ Gmail rewrites a lot of CSS on the way in, so every email is built to survive th
     - `<style>` blocks, classes, and media queries don't survive injection.
 - Never use `display:flex` or `grid`, `position`, `box-shadow`, gradients, SVG, or background images.
     - `border-radius`, `border`, `background-color`, `padding`, and `display:inline-block` on links are all safe.
-- Columns are table cells with percentage widths.
-    - Keep to two columns, and check that each still reads at about 340px wide, since there's no stacking on phones.
+- For anything side by side (text beside art, the date beside the bullets, stats), use `components.stack()`.
+    - It uses inline-block cells with `max-width`, so they sit side by side on desktop and stack on phones without media queries.
+    - The column widths must add up to no more than the card's inner width (about 570px in Workbench).
+- Check every email at 375px wide as well as desktop, because phones are where most people read it.
+- Mail apps add their own white side margins, so colored themes sit on a white page as a rounded sheet (`T()` does this automatically).
+    - Never rely on a full-bleed background color.
+- iPhone Mail turns dates into links, so `finish()` adds a zero-width non-joiner inside month names to prevent it.
 - Fonts: request Lexend with `font-family: Lexend, 'Helvetica Neue', Helvetica, Arial, sans-serif`.
     - Gmail shows Helvetica or Arial, while Apple Mail and iOS may show Lexend.
     - Fira Code is only used for small labels in some directions, falling back to `Menlo, Consolas, 'Courier New', monospace`.

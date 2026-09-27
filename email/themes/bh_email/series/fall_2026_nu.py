@@ -19,7 +19,7 @@ SLIDES = "[CALLOUT_SLIDES_LINK]"
 
 
 # ---------------------------------------------------------------- building blocks
-def card(inner, pad="22px 24px"):
+def card(inner, pad="20px 20px"):
     return row(inner, pad=pad, bg="#FFFFFF", radius="16px", extra=f" border: 2px solid {OUT};") + spacer(14)
 
 
@@ -30,9 +30,10 @@ def titled(t, icon=None):
 
 
 def with_art(text_html, art, w=150):
-    return cols([(66, text_html),
-                 (34, f'<img src="{D.img(art)}" alt="" width="{w}" style="width: 100%; max-width: {w}px; height: auto; display: block; border: 0;">')],
-                gap=12, valign="middle")
+    """Text beside an illustration on desktop; the illustration drops below the text on phones."""
+    return D.stack([(370, f'<div style="padding-right: 16px;">{text_html}</div>'),
+                    (190, f'<div style="text-align: center; padding: 8px 0;"><img src="{D.img(art)}" alt="" width="{w}" '
+                          f'style="width: {w}px; max-width: 100%; height: auto; display: inline-block; border: 0;"></div>')])
 
 
 def header():
@@ -70,9 +71,8 @@ def details_card(highlights=True):
     hl = highlights_list(INK, RED, 14)
     head, sep, tail = hl.rpartition("margin: 0 0 9px 0;")  # no trailing gap after the last bullet, so the list centers vertically
     hl = head + "margin: 0;" + tail
-    right = (f'<div style="text-align: center;"><div style="display: inline-block; text-align: left;">'
-             + hl + '</div></div>')
-    return card(cols([(52, body), (48, right)], gap=14, valign="middle"))
+    # Desktop: date block and bullets sit side by side, centered as a pair. Phone: bullets drop under the address, left-aligned.
+    return card(D.stack([(340, f'<div style="padding: 0 12px 12px 0;">{body}</div>'), (220, hl)], align="left"))
 
 
 def getting_there():

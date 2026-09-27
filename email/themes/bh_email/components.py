@@ -61,16 +61,29 @@ def a(url, text, color=NAVY, weight=600, underline=True):
     return f'<a href="{url}" style="color: {color}; text-decoration: {dec}; font-weight: {weight};">{text}</a>'
 
 
-def T(rows_html, width=640, pad="24px 12px", bg="#FFFFFF"):
-    """Outer email shell."""
+def T(rows_html, width=640, pad="12px 0", bg="#FFFFFF"):
+    """Outer email shell.
+
+    Mail apps (iPhone Mail, Gmail) add their own white margins, so a colored page background never
+    reaches the screen edges. Colored themes therefore sit on a white page as a rounded "sheet",
+    which reads as intentional at every width.
+    """
+    sheet = bg.upper() != "#FFFFFF"
+    inner = (f'<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="width: 100%; font-family: {F}; color: {INK};">\n'
+             f'{rows_html}\n</table>')
+    if sheet:
+        inner = (f'<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="{bg}" '
+                 f'style="background-color: {bg}; border-radius: 20px;"><tr><td style="padding: 16px 12px;">\n{inner}\n</td></tr></table>')
     return f'''<!-- Fonts (used by Apple Mail / iOS; Gmail falls back to Helvetica/Arial) -->
 {FONT_LINK}
 {{{{PRE}}}}
-<div style="margin: 0; padding: 0; background-color: {bg};">
-<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color: {bg};">
+<div style="margin: 0; padding: 0; background-color: #FFFFFF;">
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="#FFFFFF" style="background-color: #FFFFFF;">
 <tr><td align="center" style="padding: {pad};">
-<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="max-width: {width}px; width: 100%; font-family: {F}; color: {INK};">
-{rows_html}
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="max-width: {width}px; width: 100%;">
+<tr><td>
+{inner}
+</td></tr>
 </table>
 </td></tr>
 </table>
@@ -101,6 +114,17 @@ def btn(url, label, bg, fg="#FFFFFF", border=None, radius=8, font=F, size=15, up
     return (f'<a href="{url}" style="display: inline-block; background-color: {bg}; color: {fg}; border: 2px solid {b}; '
             f'border-radius: {radius}px; padding: {pad}; font-family: {font}; font-size: {size}px; font-weight: 700; '
             f'text-decoration: none; line-height: 1.2;{tt}">{label}</a>')
+
+
+def stack(cells, align="center", valign="middle"):
+    """Fluid-hybrid columns: cells sit side by side when they fit and stack on narrow screens.
+
+    cells: list of (max_width_px, html). Uses inline-block + max-width, which Gmail keeps
+    (media queries and <style> blocks don't survive injection into Gmail).
+    """
+    parts = "".join(f'<div style="display: inline-block; width: 100%; max-width: {w}px; vertical-align: {valign}; '
+                    f'text-align: left; font-size: 14px; box-sizing: border-box;">{html}</div>' for w, html in cells)
+    return f'<div style="font-size: 0; line-height: 0; text-align: {align};"><div style="line-height: normal; font-size: 0;">{parts}</div></div>'
 
 
 def cols(cells, gap=16, valign="top"):
@@ -249,12 +273,13 @@ def whatwedo_rows(title_color=NAVY, desc_color=MUTED, card_bg=None, border=None,
 
 
 def stats_row(num_color=NAVY, label_color=MUTED, rule=LINE, font=MONO, size=22):
+    """Four stats in a row on desktop; wraps to two per row on phones (no media queries needed)."""
     cells = []
     for n, l in C["stats"]:
-        cells.append((25, f'<div style="border-left: 2px solid {rule}; padding-left: 10px;">'
-                          f'<div style="font-family: {font}; font-size: {size}px; font-weight: 700; color: {num_color}; line-height: 1.1;">{n}</div>'
-                          f'<div style="font-family: {F}; font-size: 12px; line-height: 1.35; color: {label_color}; margin-top: 3px;">{l}</div></div>'))
-    return cols(cells, gap=8)
+        cells.append((132, f'<div style="border-left: 2px solid {rule}; padding: 0 8px 10px 10px;">'
+                           f'<div style="font-family: {font}; font-size: {size}px; font-weight: 700; color: {num_color}; line-height: 1.1;">{n}</div>'
+                           f'<div style="font-family: {F}; font-size: 12px; line-height: 1.35; color: {label_color}; margin-top: 3px;">{l}</div></div>'))
+    return stack(cells, align="left", valign="top")
 
 
 def eyebrow(text, color=NAVY, bar=RED, font=MONO, size=12):
@@ -285,5 +310,7 @@ def finish(html, pre_key=None, img_base=IMG_BASE, sender=None):
     html = re.sub(r"\{\{IMG:([a-z0-9-]+)\}\}", lambda m: f"{img_base}/{m.group(1)}.png", html)
     if sender:
         html = html.replace("[SENDER_NAME]", sender.get("name", "[SENDER_NAME]")).replace("[SENDER_EMAIL]", sender.get("email", "[SENDER_EMAIL]"))
+    for month in ("October", "November", "December", "September", "January"):
+        html = html.replace(f"{month} ", f"{month[:3]}&zwnj;{month[3:]} ")
     return html.encode("ascii", "xmlcharrefreplace").decode()
 
