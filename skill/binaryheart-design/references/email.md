@@ -106,7 +106,7 @@ Stats row: optional in every direction, and only with confirmed numbers.
 - **Recruitment:** greeting, who we are, "no application", a returning-members line, first meeting details, optional RSVP, mailing list sign-up (weekly times are set from active members' availability and announced by email), leadership, what we do, questions and connect, signature, footer.
 - **Announcement (sent 2-3 days before):** greeting, invite, details, getting there (numbered steps), weekly sessions, leadership, connect, signature, and the list-policy note.
 - **Day-of notification:** details first, then getting there, then Discord setup.
-- **Welcome:** connect, hours, location, Discord setup (join, set server nickname to your full name, install on phone and computer, turn on notifications), then "Next step: come to a meeting", since onboarding happens in person with exec and nobody should have to message someone first.
+- **Welcome:** connect, hours, location, Discord setup (join, set server nickname to your full name, install on phone and computer, turn on notifications), then "Next step: come to our first meeting", with an email fallback (e.g. nu@binaryheart.org) for anyone who can't make it.
 - **Subject lines:** lead with the event, not the food.
     - For example, "You're in! BinaryHeart's first meeting is Thursday, Oct 8".
 - **Cats on Campus event descriptions** use the same HTML rules.
