@@ -106,7 +106,7 @@ def btn(url, label, bg, fg="#FFFFFF", border=None, radius=8, font=F, size=15, up
             f'text-decoration: none; line-height: 1.2;{tt}">{label}</a>')
 
 
-def stack(cells, align="center", valign="middle"):
+def stack(cells, align="left", valign="middle"):
     """Fluid-hybrid columns: cells sit side by side when they fit and stack on narrow screens.
 
     cells: list of (max_width_px, html). Uses inline-block + max-width, which Gmail keeps

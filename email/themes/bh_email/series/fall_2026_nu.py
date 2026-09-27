@@ -33,7 +33,7 @@ def with_art(text_html, art, w=150):
     """Text beside an illustration on desktop; the illustration drops below the text on phones."""
     return D.stack([(370, f'<div style="padding-right: 16px;">{text_html}</div>'),
                     (190, f'<div style="text-align: center; padding: 8px 0;"><img src="{D.img(art)}" alt="" width="{w}" '
-                          f'style="width: {w}px; max-width: 100%; height: auto; display: inline-block; border: 0;"></div>')])
+                          f'style="width: {w}px; max-width: 100%; height: auto; display: inline-block; border: 0;"></div>')], align="left")
 
 
 def header():
