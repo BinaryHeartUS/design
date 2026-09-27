@@ -1,8 +1,9 @@
 # Brand
 
-- `logo/heart-logo.png` is the canonical heart logo (876px), with the navy "0" on the left and the red "1" on the right.
+- `logo/heart-logo.svg` is the official logo (from binaryheart.org), with the red "0" on the left and the navy "1" on the right.
+    - `logo/heart-logo.png` is a transparent 996px render of it.
     - `logo/heart-logo-email.png` is the 176px version for email.
-    - `logo/deprecated/heart-logo-mirrored.png` is the older mirrored icon, kept only so you can recognize and replace it.
+    - `logo/deprecated/heart-logo-poster-variant.png` is the mirrored version (navy "0" left) used on the Fall 2026 posters, kept only so you can recognize and replace it.
 - `fonts/` holds the fonts, all SIL OFL:
     - Archivo and Fira Code for print and social.
     - Lato for shipping labels.

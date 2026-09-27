@@ -14,7 +14,8 @@ These come straight from the founders' corrections, so treat them as fixed.
 
 1. **Binary Blue, Red Heart.**
     - "Binary" is navy `#2F4A70` and "Heart" is red `#FF0040`, always in that order.
-    - The same logic applies to the heart logo: the navy half with the "0" sits on the left, and the red half with the "1" sits on the right.
+    - The heart logo is a separate asset with its own layout: the red half with the "0" on the left and the navy half with the "1" on the right.
+    - Always use the official file and never mirror it to "match" the wordmark.
     - Never swap them, even to "balance" a layout (the current site join page and the old site icon get this wrong, and both are being fixed).
 2. **The two-color wordmark is always bold (700-800), with no exceptions.**
     - This includes logo lockups, footers, signatures, and inline mentions in body copy.
@@ -68,9 +69,9 @@ Read `references/illustrations.md` whenever a piece needs imagery.
 
 ## Assets in this skill
 
-- `assets/logo/heart-logo.png` is the canonical heart logo (876px, navy "0" left, red "1" right).
+- `assets/logo/heart-logo.svg` is the official logo (the same file as `binaryheart.org/assets/images/chapters/national/icon.svg`), and `heart-logo.png` is a 996px transparent render of it.
     - `heart-logo-email.png` is a 176px version for email, hosted at `https://raw.githubusercontent.com/BinaryHeartUS/design/main/email/assets/logo.png`.
-    - `deprecated/heart-logo-mirrored.png` is the older, mirrored site icon, kept only so you can recognize it and replace it.
+    - `deprecated/heart-logo-poster-variant.png` is the mirrored version (navy "0" left) on the Fall 2026 posters, kept only so you can recognize it and replace it.
 - `assets/app-icons/discord.png` and `instagram.png` are app-style rounded-square icons for "connect with us" rows.
 - `assets/fonts/` holds Archivo 400-800, Fira Code 400-700, and Lato 300/400/700/900 as woff2 (SIL Open Font License), for embedding in print HTML so it works offline.
 - `assets/illustrations/curated/` holds 22 trimmed PNGs, ready for email and web (see illustrations.md).

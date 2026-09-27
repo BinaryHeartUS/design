@@ -14,9 +14,11 @@ This file covers the logo, wordmark, chapters, voice, and facts that apply to ev
 
 ## Logo and wordmark
 
-- The heart logo is a heart split vertically, with a navy left half carrying a white "0" and a red right half carrying a white "1".
+- The heart logo is a heart split vertically, with a red left half carrying a white "0" and a navy right half carrying a white "1".
     - Use `assets/logo/heart-logo.png` and never recolor, mirror, outline, or add effects to it.
-    - The older site icon (`deprecated/heart-logo-mirrored.png`, still hosted at `binaryheart.org/assets/images/chapters/national/icon.png`) has the halves swapped.
+    - The official source is `https://www.binaryheart.org/assets/images/chapters/national/icon.svg` (`assets/logo/heart-logo.svg`).
+    - For email and other places that can't use SVG, use the PNG render.
+    - The Fall 2026 posters use a mirrored version (`deprecated/heart-logo-poster-variant.png`), so swap it for the official one on the next print run.
         - Until a corrected version is hosted, flag it whenever you reference that URL in an email.
 - The wordmark is "BinaryHeart": one word, "Binary" in navy `#2F4A70` and "Heart" in red `#FF0040`, always bold (700-800).
     - In HTML, write it as `<strong style="font-weight: 800;"><span style="color: #2F4A70;">Binary</span><span style="color: #FF0040;">Heart</span></strong>`.
@@ -107,6 +109,5 @@ When a chapter's accent is TBD, use navy and red only, and tell the user an acce
 - The join page (`binaryheart.org/nu/join`) and join.binaryheart.org color "Binary" red and "Heart" navy.
     - This is backwards, and the colored wordmark there is sometimes not bold.
 - The shipping label sets the wordmark in regular weight, so it should be bold.
-    - Its heart logo is also the mirrored version.
-- The hosted site icon has mirrored heart halves.
+- The Fall 2026 posters and flyers use the mirrored heart (navy "0" left) instead of the official logo.
 - Site prose sometimes writes "Binary Heart" as two words, but the brand name is one word.

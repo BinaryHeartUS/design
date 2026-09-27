@@ -201,7 +201,11 @@ def app_row(color=INK, size=14, gap=18):
 def nonprofit_footer(bg=NAVY, fg="#FFFFFF", muted="#D5DCE8", radius="0 0 16px 16px", mono=True):
     ff = MONO if mono else F
     return row(cols([
-        (62, f'<p style="margin: 0; font-family: {F}; font-size: 12px; line-height: 1.5; color: {muted};">BinaryHeart Inc. is a student-run 501(c)(3) nonprofit spreading digital access. EIN 93-2078509.</p>'),
+        (62, f'<table role="presentation" cellpadding="0" cellspacing="0" border="0"><tr>'
+             f'<td valign="middle" style="padding-right: 12px;"><div style="background-color: #FFFFFF; border-radius: 8px; padding: 5px 5px 4px 5px; line-height: 0;">'
+             f'<img src="{LOGO}" alt="BinaryHeart" width="30" style="width: 30px; height: auto; display: block; border: 0;"></div></td>'
+             f'<td valign="middle"><p style="margin: 0; font-family: {F}; font-size: 12px; line-height: 1.5; color: {muted};">BinaryHeart Inc. is a student-run 501(c)(3) nonprofit spreading digital access. EIN 93-2078509.</p></td>'
+             f'</tr></table>'),
         (38, f'<div style="text-align: right;"><a href="{SITE}" style="font-family: {ff}; font-size: 13px; font-weight: 700; color: {fg}; text-decoration: none;">binaryheart.org/nu</a>'
              f'<div style="font-family: {F}; font-size: 12px; color: {muted}; margin-top: 2px;">Upcycle, Upskill, Uplift</div></div>'),
     ], gap=16, valign="middle"), pad="16px 28px", bg=bg, radius=radius)

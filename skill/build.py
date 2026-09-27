@@ -15,6 +15,7 @@ DIST = os.path.join(ROOT, "dist")
 IGNORE = shutil.ignore_patterns(".DS_Store", "__pycache__", "*.pyc", "_template.html")
 
 COPIES = [  # (repo path, path inside the skill)
+    ("brand/logo/heart-logo.svg", "assets/logo/heart-logo.svg"),
     ("brand/logo/heart-logo.png", "assets/logo/heart-logo.png"),
     ("brand/logo/heart-logo-email.png", "assets/logo/heart-logo-email.png"),
     ("brand/logo/deprecated", "assets/logo/deprecated"),

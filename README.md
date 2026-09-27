@@ -6,7 +6,8 @@ It holds the brand rules, email themes, print templates, the illustration librar
 ## Rules that never change
 
 - **Binary Blue, Red Heart:** "Binary" is navy `#2F4A70` and "Heart" is red `#FF0040`, always in that order.
-    - The heart logo follows the same rule, with the navy "0" on the left and the red "1" on the right.
+    - The heart logo is the official `binaryheart.org/assets/images/chapters/national/icon.svg`: red "0" half on the left, navy "1" half on the right.
+    - Never mirror or recolor it.
 - **The two-color wordmark is always bold.**
     - This has no exceptions, including lockups, footers, and signatures.
 - **Navy is structure, red is action, and each chapter adds one accent color.**
@@ -22,7 +23,7 @@ The full rules live in [`skill/binaryheart-design/references/brand-core.md`](ski
 
 | Folder | What it holds |
 |---|---|
-| [`brand/`](brand/) | The heart logo (canonical, email-size, and the deprecated mirrored version), fonts (Archivo, Fira Code, Lato, all OFL), and app icons |
+| [`brand/`](brand/) | The heart logo (canonical, email-size, and the deprecated poster variant), fonts (Archivo, Fira Code, Lato, all OFL), and app icons |
 | [`email/themes/`](email/themes/) | `bh_email`, the Python theme library: six Gmail-safe directions, shared components, and series |
 | [`email/templates/`](email/templates/) | Ready-to-edit HTML per theme (recruitment and announcement), for people who don't code |
 | [`email/gallery/`](email/gallery/) | `index.html`, an interactive comparison of all six directions × 2 emails × 2 headers × stats on or off |

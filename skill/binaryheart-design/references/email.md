@@ -119,7 +119,9 @@ Stats row: optional in every direction, and only with confirmed numbers.
     - Reference them as `https://raw.githubusercontent.com/BinaryHeartUS/design/main/email/assets/<name>.png`.
     - Google Drive links don't work reliably as email images.
 - Always set `width`, `alt`, `style="display: block; border: 0; height: auto;"`.
-- Use the hosted canonical logo at `.../email/assets/logo.png`, not the mirrored `binaryheart.org/assets/images/chapters/national/icon.png`.
+- Use the hosted logo at `.../email/assets/logo.png`, a PNG render of the official `icon.svg`.
+    - Gmail can't show SVG.
+    - The footer shows the logo on a small white tile, so the navy half stays visible against the navy band.
 
 ## Checklist
 

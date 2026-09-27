@@ -41,7 +41,7 @@ The wordmark component should be one shared piece of markup:
     - Swap them to Binary navy and Heart red, and make every colored wordmark bold (the first meeting card and the footer "BinaryHeart™" are regular weight).
 - Some wordmarks use Tailwind `text-purple-600` or gray.
     - Only the school name should take the chapter accent, and never the wordmark.
-- Replace the mirrored heart icon with `assets/logo/heart-logo.png`.
+- Keep using the official `icon.svg` for the heart logo, since the site already has the right one.
 
 ## Page patterns
 
