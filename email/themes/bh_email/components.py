@@ -129,7 +129,7 @@ C = {
              if LEAD else
              "We're recruiting leaders and directors, with no application or interview. Get involved as a member and step up as the chapter grows, or tell anyone on exec at the first meeting that you're interested."),
     "directions": [
-        "Find the house with the screened front porch, directly across from Foster-Walker (two houses right of the apartment building at Orrington &amp; Emerson).",
+        "Find the house with the screened front porch, directly across from Foster-Walker (2nd house to the right of the apartment building at Orrington &amp; Emerson).",
         "Take the pathway along the right side of the house.",
         "Enter the side door and take the stairs on your right. Someone from exec will meet you and get you set up.",
     ],
