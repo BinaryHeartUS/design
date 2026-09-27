@@ -24,8 +24,9 @@ Gmail rewrites a lot of CSS on the way in, so every email is built to survive th
     - It uses inline-block cells with `max-width`, so they sit side by side on desktop and stack on phones without media queries.
     - The column widths must add up to no more than the card's inner width (about 570px in Workbench).
 - Check every email at 375px wide as well as desktop, because phones are where most people read it.
-- Mail apps add their own white side margins, so colored themes sit on a white page as a rounded sheet (`T()` does this automatically).
-    - Never rely on a full-bleed background color.
+- The theme background fills the whole message, and `T()` adds 16px side margins so cards never touch the screen edge on phones.
+    - Never put colored themes on a white page or white side margins; Enzo rejected that look.
+    - Mail apps may add their own thin margin outside the email, which can't be removed from Gmail-sent HTML.
 - iPhone Mail turns dates into links, so `finish()` adds a zero-width non-joiner inside month names to prevent it.
 - Fonts: request Lexend with `font-family: Lexend, 'Helvetica Neue', Helvetica, Arial, sans-serif`.
     - Gmail shows Helvetica or Arial, while Apple Mail and iOS may show Lexend.

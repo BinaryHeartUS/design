@@ -61,29 +61,19 @@ def a(url, text, color=NAVY, weight=600, underline=True):
     return f'<a href="{url}" style="color: {color}; text-decoration: {dec}; font-weight: {weight};">{text}</a>'
 
 
-def T(rows_html, width=640, pad="12px 0", bg="#FFFFFF"):
-    """Outer email shell.
-
-    Mail apps (iPhone Mail, Gmail) add their own white margins, so a colored page background never
-    reaches the screen edges. Colored themes therefore sit on a white page as a rounded "sheet",
-    which reads as intentional at every width.
+def T(rows_html, width=640, pad="20px 16px", bg="#FFFFFF"):
+    """Outer email shell: the theme background fills the whole message, with 16px side margins
+    between the screen edge and the content so cards never touch the edges on phones.
+    (Mail apps may still add their own thin margin outside the email; that can't be removed from Gmail-sent HTML.)
     """
-    sheet = bg.upper() != "#FFFFFF"
-    inner = (f'<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="width: 100%; font-family: {F}; color: {INK};">\n'
-             f'{rows_html}\n</table>')
-    if sheet:
-        inner = (f'<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="{bg}" '
-                 f'style="background-color: {bg}; border-radius: 20px;"><tr><td style="padding: 16px 12px;">\n{inner}\n</td></tr></table>')
     return f'''<!-- Fonts (used by Apple Mail / iOS; Gmail falls back to Helvetica/Arial) -->
 {FONT_LINK}
 {{{{PRE}}}}
-<div style="margin: 0; padding: 0; background-color: #FFFFFF;">
-<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="#FFFFFF" style="background-color: #FFFFFF;">
+<div style="margin: 0; padding: 0; background-color: {bg};">
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="{bg}" style="background-color: {bg};">
 <tr><td align="center" style="padding: {pad};">
-<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="max-width: {width}px; width: 100%;">
-<tr><td>
-{inner}
-</td></tr>
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="max-width: {width}px; width: 100%; font-family: {F}; color: {INK};">
+{rows_html}
 </table>
 </td></tr>
 </table>
@@ -215,25 +205,26 @@ def signature(color=INK, muted=MUTED):
 
 
 def app_row(color=INK, size=14, gap=18):
+    """Instagram + Discord links; each item is inline-block so the pair wraps cleanly on phones."""
     def item(icon, label, url):
-        return (f'<td valign="middle" style="padding-right: {gap}px;"><a href="{url}" style="text-decoration: none; color: {color};">'
+        return (f'<div style="display: inline-block; padding: 0 {gap}px 8px 0; white-space: nowrap;"><a href="{url}" style="text-decoration: none; color: {color};">'
                 f'<img src="{img(icon)}" alt="" width="28" height="28" style="width: 28px; height: 28px; vertical-align: middle; border: 0; border-radius: 7px;">'
-                f'<span style="font-family: {F}; font-size: {size}px; font-weight: 600; vertical-align: middle; padding-left: 8px; color: {color};">{label}</span></a></td>')
-    return (f'<table role="presentation" cellpadding="0" cellspacing="0" border="0"><tr>'
-            f'{item("app-instagram", "@binaryheartatnu", IG)}{item("app-discord", "Join our Discord", DISCORD)}</tr></table>')
+                f'<span style="font-family: {F}; font-size: {size}px; font-weight: 600; vertical-align: middle; padding-left: 8px; color: {color};">{label}</span></a></div>')
+    return f'<div>{item("app-instagram", "@binaryheartatnu", IG)}{item("app-discord", "Join our Discord", DISCORD)}</div>'
 
 
 def nonprofit_footer(bg=NAVY, fg="#FFFFFF", muted="#D5DCE8", radius="0 0 16px 16px", mono=True):
+    """Logo + legal line, then URL + tagline. Side by side on desktop, stacked on phones."""
     ff = MONO if mono else F
-    return row(cols([
-        (62, f'<table role="presentation" cellpadding="0" cellspacing="0" border="0"><tr>'
-             f'<td valign="middle" style="padding-right: 12px;"><div style="background-color: #FFFFFF; border-radius: 8px; padding: 5px 5px 4px 5px; line-height: 0;">'
-             f'<img src="{LOGO}" alt="BinaryHeart" width="30" style="width: 30px; height: auto; display: block; border: 0;"></div></td>'
-             f'<td valign="middle"><p style="margin: 0; font-family: {F}; font-size: 12px; line-height: 1.5; color: {muted};">BinaryHeart Inc. is a student-run 501(c)(3) nonprofit spreading digital access. EIN 93-2078509.</p></td>'
-             f'</tr></table>'),
-        (38, f'<div style="text-align: right;"><a href="{SITE}" style="font-family: {ff}; font-size: 13px; font-weight: 700; color: {fg}; text-decoration: none;">binaryheart.org/nu</a>'
-             f'<div style="font-family: {F}; font-size: 12px; color: {muted}; margin-top: 2px;">Upcycle, Upskill, Uplift</div></div>'),
-    ], gap=16, valign="middle"), pad="16px 28px", bg=bg, radius=radius)
+    left = (f'<table role="presentation" cellpadding="0" cellspacing="0" border="0"><tr>'
+            f'<td valign="middle" style="padding-right: 12px;"><div style="background-color: #FFFFFF; border-radius: 8px; padding: 5px 5px 4px 5px; line-height: 0;">'
+            f'<img src="{LOGO}" alt="BinaryHeart" width="30" style="width: 30px; height: auto; display: block; border: 0;"></div></td>'
+            f'<td valign="middle"><p style="margin: 0; font-family: {F}; font-size: 12px; line-height: 1.5; color: {muted};">BinaryHeart Inc. is a student-run 501(c)(3) nonprofit spreading digital access. <span style="white-space: nowrap;">EIN 93-2078509.</span></p></td>'
+            f'</tr></table>')
+    right = (f'<div style="padding: 6px 0;"><a href="{SITE}" style="font-family: {ff}; font-size: 13px; font-weight: 700; color: {fg}; text-decoration: none;">binaryheart.org/nu</a>'
+             f'<div style="font-family: {F}; font-size: 12px; color: {muted}; margin-top: 2px;">Upcycle, Upskill, Uplift</div></div>')
+    return row(stack([(340, f'<div style="padding: 6px 16px 6px 0;">{left}</div>'), (170, right)], align="left"),
+               pad="14px 22px", bg=bg, radius=radius)
 
 
 def highlights_list(color=INK, marker=RED, size=15, square=True, sub=False, submuted=MUTED):
