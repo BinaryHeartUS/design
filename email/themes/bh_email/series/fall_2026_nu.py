@@ -67,7 +67,12 @@ def details_card(highlights=True):
     if not highlights:
         return card(body)
 
-    return card(cols([(46, body), (54, highlights_list(INK, RED, 14))], gap=14, valign="middle"))
+    hl = highlights_list(INK, RED, 14)
+    head, sep, tail = hl.rpartition("margin: 0 0 9px 0;")  # no trailing gap after the last bullet, so the list centers vertically
+    hl = head + "margin: 0;" + tail
+    right = (f'<div style="text-align: center;"><div style="display: inline-block; text-align: left;">'
+             + hl + '</div></div>')
+    return card(cols([(52, body), (48, right)], gap=14, valign="middle"))
 
 
 def getting_there():
